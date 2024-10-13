@@ -18,40 +18,62 @@ class HomeScreen extends StatelessWidget {
             appBar: _BuildAppBarSection(context), // AppBar
             // body
             body: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // TabBar
-                    _buildTabbarSection(), //TabBar
-                    // TabBarView
-                    // Expanded(
-                    //   child: TabBarView(
-                    //     children: [
-                    //       Center(child: Text("Delivery content here")),
-                    //       Center(child: Text("Takeaway content here")),
-                    //       Center(child: Text("Dine-in content here")),
-                    //       Center(child: Text("Deliver to train content here")),
-                    //     ],
-                    //   ),
-                    // ),
-                    SizedBox(
-                      height: 10,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // TabBar
+                  _buildTabbarSection(), //TabBar
+                  // TabBarView
+                  // Expanded(
+                  //   child: TabBarView(
+                  //     children: [
+                  //       Center(child: Text("Delivery content here")),
+                  //       Center(child: Text("Takeaway content here")),
+                  //       Center(child: Text("Dine-in content here")),
+                  //       Center(child: Text("Deliver to train content here")),
+                  //     ],
+                  //   ),
+                  // ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  _buildOfferyouSection(context), //offers for you
+                  SizedBox(
+                    height: 10,
+                  ),
+                  _buildCravingSection(),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        containerSection(),
+                        containerSection(),
+                        containerSection(),
+                        containerSection(),
+                      ],
                     ),
-                    _buildOfferyouSection(context), //offers for you
-                    SizedBox(
-                      height: 10,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        containerSection(),
+                        containerSection(),
+                        containerSection(),
+                        containerSection(),
+                      ],
                     ),
-                    _buildCravingSection(),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Container(
-                      child: containerSection(),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             )));
   }
@@ -61,12 +83,15 @@ class HomeScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "What are you craving for?",
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 15,
-              fontWeight: FontWeight.bold,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              "What are you craving for?",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
           GridView.builder(
@@ -131,7 +156,7 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
             Text(
-              "KERALA",
+              "Kerala, India",
               style: TextStyle(fontSize: 10),
             ),
           ],
@@ -233,104 +258,107 @@ class HomeScreen extends StatelessWidget {
   }
 
   Widget _buildOfferyouSection(BuildContext context) {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(5.0),
-            child: Text(
-              "Offers for you",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 15,
-                fontWeight: FontWeight.bold,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                "Offers for you",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          InkWell(
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => OffersForYouSection(),
-                  ));
-            },
-            child: Container(
-              height: 65,
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 0, 151, 101),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 12, vertical: 10),
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            Container(
-                              width: 20,
-                              child:
-                                  Image.asset("assets/image/discount (3).png"),
-                            ),
-                            Text(
-                              "   Get ₹50 OFF",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
+            SizedBox(
+              height: 10,
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => OffersForYouSection(),
+                    ));
+              },
+              child: Container(
+                height: 65,
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 0, 151, 101),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 12, vertical: 10),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Container(
+                                width: 20,
+                                child: Image.asset(
+                                    "assets/image/discount (3).png"),
                               ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 5),
-                        Row(
-                          children: [
-                            Text(
-                              "Get ₹50 off on orders of ₹200 or more",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 10),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 12, vertical: 10),
-                    child: Container(
-                      height: 38,
-                      width: 70,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(width: 1.5, color: Colors.white),
-                        color: Color.fromARGB(255, 0, 151, 101),
+                              Text(
+                                "   Get ₹50 OFF",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 5),
+                          Row(
+                            children: [
+                              Text(
+                                "Get ₹50 off on orders of ₹200 or more",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 10),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
-                      child: Center(
-                        child: Text(
-                          "View",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 12, vertical: 10),
+                      child: Container(
+                        height: 38,
+                        width: 70,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(width: 1.5, color: Colors.white),
+                          color: Color.fromARGB(255, 0, 151, 101),
+                        ),
+                        child: Center(
+                          child: Text(
+                            "View",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

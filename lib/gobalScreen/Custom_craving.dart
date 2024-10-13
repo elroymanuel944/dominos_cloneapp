@@ -13,7 +13,7 @@ class CravingSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Padding(padding: EdgeInsets.symmetric(horizontal: 8)),
+        Padding(padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10)),
         Container(
           child: Column(
             children: [

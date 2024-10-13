@@ -1,4 +1,3 @@
-
 import 'package:dominos_cloneapp/splashScreen/SplashScreen.dart';
 import 'package:flutter/material.dart';
 
@@ -17,4 +16,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
